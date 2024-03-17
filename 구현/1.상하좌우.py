@@ -9,7 +9,7 @@ dy=[-1,1,0,0]
 pos = [1,1]
 
 
-# find index sol
+# find index solution
 # direction = ['l','r']
 # direction.index('l')
 #  -> 0
