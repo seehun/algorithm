@@ -1,28 +1,15 @@
-n,m = 3,4
+n=7
+t=[3,5,1,1,2,4,2]
+p=[10,20,10,20,15,40,200]
+max_value=0
 
+dp=[0] * n
 
-dp = [
-    [1,3,3,2],
-    [2,1,4,1],
-    [0,6,4,7]
-]
+for i in range(n-1,-1,-1):
+    if i + t[i] <= n:
+        dp[i] = p[i]
+        for j in range(i,n):
+            dp[i] = max(p[i]+dp[i+t[i]], dp[i])
 
-dx= []
-dy= []
-
-for i in range(n):
-    for j in range(1,m):
-        if i-1 == -1:
-            left_up =0
-            dp[i][j] += max( left_up, dp[i][j-1], dp[i+1][j-1] )
-            continue
-        if i+1>=n:
-            left_down =0
-            dp[i][j] += max( dp[i-1][j-1], dp[i][j-1], left_down)
-            continue
-        
-        dp[i][j] += max( dp[i-1][j-1], dp[i][j-1], dp[i+1][j-1] )
-
-print(dp)
-        
+print(max(dp))
 
